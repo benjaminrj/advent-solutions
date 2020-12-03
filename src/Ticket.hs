@@ -1,9 +1,9 @@
-module Ticket (fileToInts) where
+module Ticket (ticketSolution) where
 
 import System.IO
 
-solution :: IO String
-solution = do
+ticketSolution :: IO String
+ticketSolution = do
   maybeVals <- sumsTo2020 <$> fileToInts "input.txt"
   return $ case maybeVals of
     Just (a, b) -> show a ++ " times " ++ show b ++ " is " ++ show (a * b)
