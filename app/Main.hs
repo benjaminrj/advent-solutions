@@ -7,4 +7,5 @@ main :: IO ()
 main = do
   putStrLn =<< ticketSolutionA
   putStrLn =<< ticketSolutionB
-  putStrLn =<< numValidPasswords
+  putStrLn =<< numValidPasswords isValid
+  putStrLn =<< numValidPasswords isActuallyValid
