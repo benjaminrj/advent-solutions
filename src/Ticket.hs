@@ -5,14 +5,14 @@ import qualified Data.HashMap.Strict as HM
 
 ticketSolutionA :: IO String
 ticketSolutionA = do
-  maybeVals <- sumsTo 2020 mempty <$> fileToInts "input.txt"
+  maybeVals <- sumsTo 2020 mempty <$> fileInts
   return $ case maybeVals of
     Just (a, b) -> show a ++ " times " ++ show b ++ " is " ++ show (a * b)
     Nothing -> "no solution"
 
 ticketSolutionB :: IO String
 ticketSolutionB = do
-  maybeVals <- sums3To 2020 [] <$> fileToInts "input.txt"
+  maybeVals <- sums3To 2020 [] <$> fileInts
   return $ case maybeVals of
     Just (a, b, c)
       -> show a ++ " times " 
@@ -21,8 +21,8 @@ ticketSolutionB = do
       ++ show (a * b * c)
     Nothing -> "no solution"
 
-fileToInts :: FilePath -> IO [Int]
-fileToInts file = map read . lines <$> readFile file
+fileInts :: IO [Int]
+fileInts = map read . lines <$> readFile "ticket_input.txt"
 
 sumsTo :: Int -> HM.HashMap Int Int -> [Int] -> Maybe (Int, Int)
 sumsTo _ _ [] = Nothing
