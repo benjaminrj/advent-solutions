@@ -2,6 +2,7 @@ module Main where
 
 import Password
 import Ticket
+import Trees
 
 main :: IO ()
 main = do
@@ -9,3 +10,4 @@ main = do
   putStrLn =<< ticketSolutionB
   putStrLn =<< numValidPasswords isValid
   putStrLn =<< numValidPasswords isActuallyValid
+  treeSolution
